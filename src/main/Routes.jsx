@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route, Redirect, HashRouter } from 'react-router-dom'
+import { Route, Redirect, HashRouter } from 'react-router-dom'
 
 import Todo from '../todo/Todo'
 import About from '../about/About'

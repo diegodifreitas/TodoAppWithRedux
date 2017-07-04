@@ -5,11 +5,15 @@ const api = axios.create({
 })
 
 export const createTodo = (description) => api.post('todos', description)
-export const getTodos = ( ) => api.get('todos')
+export const getTodos = (search) => api.get('todos' + search)
+export const deleteTodo = (todo) => api.delete('todos/' + todo.id)
+export const alterTodo = (todo) => api.put('todos/' + todo.id, todo)
 
 const apis = {
   getTodos,
-  createTodo
+  createTodo,
+  deleteTodo,
+  alterTodo
 }
 
 export default apis

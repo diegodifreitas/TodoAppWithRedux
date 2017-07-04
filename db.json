@@ -11,24 +11,19 @@
       "done": false
     },
     {
-      "id": 3,
-      "description": "Ver video aulas de ES6",
-      "done": true
-    },
-    {
-      "id": 4,
-      "description": "Estudar Webpack2",
-      "done":false
-    },
-    {
       "description": "Estudar para Sistemas Distribuidos",
-      "done":true,
+      "done": false,
       "id": 6
     },
     {
-      "description": "Estudar Redux",
+      "description": "Entregar relatório",
       "done": false,
-      "id": 8
+      "id": 7
+    },
+    {
+      "description": "Jaoo",
+      "done": false,
+      "id": 10
     }
   ]
 }
