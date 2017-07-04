@@ -10,14 +10,39 @@ export const search = () => {
     return {
         type: 'TODO_SEARCHED',
         payload: request
-
     }
 }
 
 export const add = (description) => {
-    const request = Api.createTodo( { description } )
-    return{
-        type: 'TODO_ADDED',
-        payload: request
+    return dispatch => {
+        Api.createTodo( { description } )
+            .then( resp => dispatch(clear()))
+            .then( resp => dispatch(search()))
     }
+}
+
+export const markAsDone = (todo) => {
+    return dispatch => {
+        Api.alterTodo({ ...todo, done: true })
+            //.then( resp => dispatch({ type: 'TODO_MARKED_AS_DONE', payload: resp.data }))
+            .then( resp => dispatch(search()))
+    }
+}
+
+export const markAsPending = (todo) => {
+    return dispatch => {
+        Api.alterTodo({ ...todo, done: false })
+            .then( resp => dispatch(search()))
+    }
+}
+
+export const remove = (todo) => {
+    return dispatch => {
+        Api.deleteTodo(todo)
+            .then( resp => dispatch(search())) 
+    }
+}
+
+export const clear = () => {
+    return { type: 'TODO_CLEAR'}
 }
